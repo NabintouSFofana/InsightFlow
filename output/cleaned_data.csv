@@ -1,0 +1,20 @@
+Name,Age,Salary,Department,JoinDate
+Alice,24,55000,Sales,2026-01-03
+John,31,"72,000",Engineering,2026/02/01
+Emma,,61000,HR,2026-02-11
+David,35,-82000,Engineering,2026-03-04
+alice ,24,55000,Sales,2026-01-03
+Mia,150,42000,Marketing,bad-date
+,29,58000,Finance,2026-04-18
+Leo,-3,33000,Support,2026-05-20
+Sara,28,,HR,2026-05-21
+Noah,28,61000,HR,2026-05-21
+Olivia,,9999999,Executive,2026-06-02
+Ben,41, 47000 ,Ops,2026-06-10
+Zoe,27,?,Marketing,
+Chris,33,0,Unknown,2026-07-01
+Amina,26,65000USD,Sales,2026-08-08
+Kevin,44,,Engineering,2026-09-01
+Lucas,30,54000,Engineering,2026-09-12
+Sophia,abc,68000,HR,2026-10-01
+Daniel,45,120000,Management,2026-10-05
