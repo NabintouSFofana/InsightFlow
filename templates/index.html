@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1">
+
+    <title>
+        InsightFlow
+    </title>
+
+    <link
+            rel="stylesheet"
+            href="/static/style.css">
+    <link
+            rel="icon"
+            href="/static/favicon.svg">
+</head>
+
+<body>
+
+<div class="hero">
+
+    <h1>
+
+        📊 InsightFlow
+
+    </h1>
+
+    <p>
+
+        Clean • Analyze • Detect anomalies • Generate insights
+
+    </p>
+
+</div>
+
+<div class="upload-card">
+
+    <form
+            method="POST"
+            enctype="multipart/form-data">
+
+        <label class="upload">
+
+            <input
+                    type="file"
+                    name="csv"
+                    required>
+
+            <div id="upload-content">
+
+                <div class="upload-icon">
+
+                    📁
+
+                </div>
+
+                <div
+                        id="upload-name">
+
+                    Drop CSV or click
+
+                </div>
+
+                <div
+                        id="upload-size">
+
+                    CSV only
+
+                </div>
+
+            </div>
+
+        </label>
+
+        <button>
+
+            Analyze
+
+        </button>
+
+    </form>
+
+</div>
+
+
+{% if result %}
+
+<div class="metrics">
+
+    <div class="metric">
+
+        <div class="label">
+
+            Rows Before
+
+        </div>
+
+        <div class="value">
+
+            {{result.metrics.rows_before}}
+
+        </div>
+
+    </div>
+
+    <div class="metric">
+
+        <div class="label">
+
+            Rows After
+
+        </div>
+
+        <div class="value">
+
+            {{result.metrics.rows_after}}
+
+        </div>
+
+    </div>
+
+    <div class="metric">
+
+        <div class="label">
+
+            Duplicates
+
+        </div>
+
+        <div class="value">
+
+            {{result.metrics.duplicates_removed}}
+
+        </div>
+
+    </div>
+
+    <div class="metric">
+
+        <div class="label">
+
+            Missing Fixed
+
+        </div>
+
+        <div class="value">
+
+            {{result.metrics.missing_fixed}}
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="layout">
+
+    <div class="card">
+
+        <h2>
+
+            Insights
+
+        </h2>
+
+        <ul>
+
+            {% for i in result.insights %}
+
+            <li>
+
+                {{i}}
+
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <div class="card">
+
+        <h2>
+
+            Preview
+
+        </h2>
+
+        <div class="table-wrap">
+
+            {{result.table|safe}}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+<footer>
+
+    <div>
+
+        Built and designed by
+        <strong>
+
+            Nabintou S. Fofana
+
+        </strong>
+
+    </div>
+
+    <div>
+
+        © 2026 InsightFlow
+
+    </div>
+
+</footer>
+<script>
+
+    const input =
+    document.querySelector(
+    'input[type=file]'
+    )
+
+    const name =
+    document.getElementById(
+    'upload-name'
+    )
+
+    const size =
+    document.getElementById(
+    'upload-size'
+    )
+
+    input.addEventListener(
+    'change',
+    ()=>{
+
+    if(
+    input.files.length
+    ){
+
+    const file =
+    input.files[0]
+
+    name.innerHTML=
+    `📄 ${file.name}`
+
+    size.innerHTML=
+    `
+    ✓ Ready ·
+    ${(
+    file.size
+    /
+    1024
+    ).toFixed(1)}
+     KB
+    `
+
+    }
+
+    }
+    )
+
+</script>
+
+</body>
+
+</html>

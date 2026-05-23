@@ -1,48 +1,130 @@
-# Smart CSV Analyzer
+# 📊 InsightFlow
 
-Clean messy CSV files automatically.
+Automated data cleaning, anomaly detection and insight generation for messy CSV datasets.
+
+Built and designed by **Nabintou S. Fofana**
+
+---
 
 ## Features
 
-- CSV cleaning
-- Duplicate removal
-- Missing value handling
-- Dashboard generation
-- Automatic insights
-- PDF reporting
-- Plot generation
-- CLI workflow
+✔ CSV Upload Dashboard  
+✔ Smart Data Cleaning  
+✔ Missing Value Repair  
+✔ Duplicate Removal  
+✔ Automatic Insight Generation  
+✔ Data Quality Metrics  
+✔ Outlier Detection  
+✔ Interactive Preview  
+✔ PDF Reporting  
 
-## Install
+---
 
+## Screeshot
+![alt text](image.png)
+
+## Dashboard
+
+Upload CSV →
+
+Analyze →
+
+Receive:
+
+- Quality metrics
+- Smart insights
+- Cleaned preview
+- Automatic anomaly detection
+
+---
+
+## Tech Stack
+
+Python  
+Flask  
+Pandas  
+HTML  
+CSS  
+FPDF  
+
+---
+
+## Installation
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 
-## Run
+Run:
 
-python csv_data_analyzer.py --file input/data.csv
+python app.py
 
-## Outputs
+Open:
+
+http://127.0.0.1:5000
+Example Insights
+⚠ Salary contains negative values
+
+⚠ 3 outliers detected in Age
+
+🏆 Largest department: Engineering
+
+✓ Data cleaned successfully
+Folder Structure
+InsightFlow/
+
+app.py
+
+csv_data_analyzer.py
+
+cleaner.py
+
+insights.py
+
+reporter.py
+
+dashboard_generator.py
+
+templates/
+
+static/
+
+input/
 
 output/
+Roadmap
 
-cleaned_data.csv
+✓ Dashboard
 
-dashboard.html
+✓ Smart Cleaning
 
-column_plot.png
+✓ Auto Insights
 
-report.pdf
+Next:
 
-## Stack
+□ AI Summary
 
-Python
+□ Charts
 
-Pandas
+□ Export Dashboard
 
-Plotly
+□ Historical Uploads
 
-Matplotlib
+□ Dark Mode
 
-FPDF
+Author
 
-Jinja2
+Nabintou S. Fofana
+
+© 2026 InsightFlow
+
+
+---
+
+Then:
+
+```bash
+git add .
+git commit -m "Rebrand to InsightFlow and add auto insight engine"
+git push

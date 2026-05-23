@@ -1,7 +1,5 @@
-import pandas as pd
-
-
 def clean_data(df):
+
     before = len(df)
 
     duplicates = df.duplicated().sum()
@@ -13,10 +11,19 @@ def clean_data(df):
     df = df.fillna("Unknown")
 
     metrics = {
+
         "rows_before": before,
+
         "rows_after": len(df),
-        "duplicates_removed": int(duplicates),
-        "missing_fixed": int(missing),
+
+        "duplicates_removed": int(
+            duplicates
+        ),
+
+        "missing_fixed": int(
+            missing
+        )
+
     }
 
     return df, metrics

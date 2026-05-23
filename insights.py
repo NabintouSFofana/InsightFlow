@@ -5,29 +5,98 @@ def generate_insights(df):
 
     insights = []
 
-    insights.append(f"Rows: {len(df)}")
+    rows = len(df)
 
-    if "Salary" in df.columns:
-        salary = pd.to_numeric(
-            df["Salary"],
-            errors="coerce"
-        )
+    insights.append(
+        f"Analyzed {rows} rows"
+    )
+
+    missing = (
+        df.isna()
+        .sum()
+        .sum()
+    )
+
+    if missing:
 
         insights.append(
-            f"Average salary: ${salary.mean():,.0f}"
+            f"⚠ {missing} missing values detected"
         )
 
+    duplicates = (
+        df.duplicated()
+        .sum()
+    )
+
+    if duplicates:
+
         insights.append(
-            f"Highest salary: ${salary.max():,.0f}"
+            f"⚠ {duplicates} duplicates detected"
         )
+
+    numeric = df.select_dtypes(
+        include="number"
+    )
+
+    for col in numeric.columns:
+
+        s = numeric[col]
+
+        if len(s):
+
+            if (
+                    s.min()
+                    < 0
+            ):
+
+                insights.append(
+                    f"⚠ {col} contains negative values"
+                )
+
+            q1 = s.quantile(.25)
+
+            q3 = s.quantile(.75)
+
+            iqr = q3 - q1
+
+            high = q3 + 1.5 * iqr
+
+            low = q1 - 1.5 * iqr
+
+            count = (
+                    (
+                            s < low
+                    )
+                    |
+                    (
+                            s > high
+                    )
+            ).sum()
+
+            if count:
+
+                insights.append(
+                    f"⚠ {count} outliers detected in {col}"
+                )
+
+            insights.append(
+                f"✓ Average {col}: {round(s.mean(),1)}"
+            )
 
     if "Department" in df.columns:
 
-        dep = df["Department"].mode()
+        top = (
+            df["Department"]
+            .value_counts()
+            .idxmax()
+        )
 
-        if not dep.empty:
-            insights.append(
-                f"Top department: {dep.iloc[0]}"
-            )
+        insights.append(
+            f"🏆 Largest group: {top}"
+        )
+
+    insights.append(
+        "✓ Data quality analysis completed"
+    )
 
     return insights
