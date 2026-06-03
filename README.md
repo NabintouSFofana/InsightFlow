@@ -2,7 +2,7 @@
 
 > A small tool that takes a messy CSV and tells you what's in it.
 
-**Live demo:** [coming soon — Render free tier link]
+**Live demo:** https://insightflow-t50k.onrender.com/
 
 I built InsightFlow because I was tired of opening spreadsheets in Excel,
 running the same five sanity checks (any duplicates? missing values?
