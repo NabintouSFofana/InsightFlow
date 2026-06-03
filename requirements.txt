@@ -1,0 +1,10 @@
+flask>=3.0
+pandas>=2.0
+matplotlib>=3.7
+fpdf2>=2.7
+
+# Production WSGI server (used by Render, not needed locally)
+gunicorn>=21.0
+
+# Optional: enables coloured terminal output in the CLI version
+rich>=13.0

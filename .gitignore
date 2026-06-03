@@ -1,0 +1,79 @@
+# ─── Python bytecode / cache ─────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ─── Virtual environments ────────────────────────────────────────────
+venv/
+.venv/
+env/
+ENV/
+.python-version
+
+# ─── Distribution / packaging ────────────────────────────────────────
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+wheels/
+
+# ─── Testing / coverage ──────────────────────────────────────────────
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# ─── Flask / runtime ─────────────────────────────────────────────────
+instance/
+.flaskenv
+
+# ─── Tool output ─────────────────────────────────────────────────────
+# The CLI and web app both write generated files into output/.
+# They regenerate every run, so they don't belong in the repo.
+output/*.csv
+output/*.png
+output/*.pdf
+output/*.html
+
+# ─── Jupyter ─────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ─── IDE / editor files ──────────────────────────────────────────────
+.idea/
+*.iml
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# ─── OS junk ─────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+._*
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ─── Logs and temp ───────────────────────────────────────────────────
+*.log
+*.tmp
+*.bak
+*.cache
+
+# ─── Local-only experiments ──────────────────────────────────────────
+_draft*
+_scratch*
+_local*
+
+# ─── Secrets ─────────────────────────────────────────────────────────
+.env
+.env.local
+secrets.json
